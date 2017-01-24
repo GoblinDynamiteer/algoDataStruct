@@ -1,9 +1,9 @@
-TARGET = algo_struct
+TARGET = algo_assign
 LIBS =
 CC = gcc
 CFLAGS = -g -Wall
-SUBDIR = struct
-SRC = $(wildcard $(SUBDIR)/*.c)
+SUBDIR = assignments\ass01
+SRC = $(wildcard *.c) $(wildcard $(SUBDIR)/*.c)
 
 all:
 	$(CC) $(SRC) -o $(TARGET) $(LIBS)
