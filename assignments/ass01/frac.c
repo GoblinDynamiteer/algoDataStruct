@@ -67,6 +67,7 @@ frac simplifyFrac(frac frac){
     n = r;
   }
   if(r != 1){
+  if(n != 1){
     frac.t /= n;
     frac.n /= n;
   }
