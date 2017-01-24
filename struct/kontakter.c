@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct _person_S{
   char * namn;
@@ -13,7 +14,7 @@ typedef int * ptr_to_int;
 
 int main(void){
   int ix;
-  char namn[64];
+  char namn[64], aldersStr[64];
 
   printf("Välkommen till kontakter!\n");
 
@@ -23,12 +24,17 @@ int main(void){
       printf("Ange namn: "); fflush(stdin);
       fgets(namn, 64, stdin);
       kontakt[ix].namn = namn; //fel - pekare
+
+      /*    Set null terminator at end of name */
+      namn[strlen(namn)-1] = '\0';
       printf("Ange ålder: "); fflush(stdout);
-      fscanf(stdin, "%d", &kontakt[ix].alder); fflush(stdin);
+      fgets(aldersStr, 64, stdin);
+      kontakt[ix].alder = atoi(aldersStr);
     }
 
+  /*   Print contact  */
   for(int i = 0; i< 3; i++){
-      printf("namn %d: %s\nÅlder: %d\n",
+      printf("namn %d: %s Ålder: %d\n",
       i,
       kontakt[i].namn,
       kontakt[i].alder
