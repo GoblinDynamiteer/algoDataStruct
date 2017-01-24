@@ -14,6 +14,9 @@ typedef struct _q_S{
   int n;  //Nämnare
 }frac;
 
+
+/*   Funktioner */
+/*   frac.c  */
 frac plus(frac f1, frac f2);
 frac minus(frac f1, frac f2);
 frac times(frac f1, frac f2);

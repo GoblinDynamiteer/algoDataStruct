@@ -6,6 +6,7 @@
 
 #include "frac.h"
 
+/*  Addition på bråktal   */
 frac plus(frac f1, frac f2){
   frac result;
   if(f1.n == f2.n){
@@ -19,6 +20,7 @@ frac plus(frac f1, frac f2){
   return result;
 }
 
+/*  Subtraktion på bråktal  */
 frac minus(frac f1, frac f2){
   frac result;
   if(f1.n == f2.n){
@@ -32,6 +34,7 @@ frac minus(frac f1, frac f2){
   return result;
 }
 
+/*   Multiplikation på bråktal  */
 frac times(frac f1, frac f2){
   frac result;
   result.t = f1.t * f2.t;
@@ -39,6 +42,7 @@ frac times(frac f1, frac f2){
   return result;
 }
 
+/*  Division på bråktal   */
 frac div(frac f1, frac f2){
   frac result;
   result.t = f1.t * f2.n;
