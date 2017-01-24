@@ -2,7 +2,7 @@ TARGET = algo_assign01
 LIBS =
 CC = gcc
 CFLAGS = -g -Wall
-SUBDIR = assignments\ass01
+SUBDIR = assignments/ass01
 SRC = $(wildcard *.c) $(wildcard $(SUBDIR)/*.c)
 
 all:
