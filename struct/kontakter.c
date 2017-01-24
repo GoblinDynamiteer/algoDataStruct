@@ -1,16 +1,16 @@
 
 #include <stdio.h>
-#include <stdbool.h>
+#include <stdlib.h>
 
-struct person1{
+struct person{
   char * namn;
   int alder;
 }p1, p2;
 
-typedef struct person2{
+typedef struct _person_S{
   char * namn;
   int alder;
-}person;
+}person_typedef;
 
 int main(void){
   printf("Välkommen till kontakter!\n");
@@ -21,6 +21,15 @@ int main(void){
     p1.namn, p1.alder);
   printf("person - namn: %s, ålder: %d\n",
     p2.namn, p2.alder);
-  person *p, kontakter[1000];
+
+  /*   Pointer to non-typedef struct  */
+  struct person *p, kontakter[1000];
+  p = (struct person *)malloc(sizeof(struct person));
+
+  /*   Pointer to typedef struct */
+  person_typedef *pt, tkontakter[1000];
+  pt = (person_typedef *)malloc(sizeof(person_typedef));
+
   return 0;
+
 }
