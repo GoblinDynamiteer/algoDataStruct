@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct person{
+struct person1{
   char * namn;
   int alder;
 }p1, p2;
@@ -10,7 +10,7 @@ struct person{
 typedef struct _person_S{
   char * namn;
   int alder;
-}person_typedef;
+}person;
 
 int main(void){
   printf("Välkommen till kontakter!\n");
@@ -23,12 +23,12 @@ int main(void){
     p2.namn, p2.alder);
 
   /*   Pointer to non-typedef struct  */
-  struct person *p, kontakter[1000];
-  p = (struct person *)malloc(sizeof(struct person));
+  struct person1 *p, kontakter[1000];
+  p = (struct person1 *)malloc(sizeof(struct person1));
 
   /*   Pointer to typedef struct */
-  person_typedef *pt, tkontakter[1000];
-  pt = (person_typedef *)malloc(sizeof(person_typedef));
+  person *pt, tkontakter[1000];
+  pt = (person *)malloc(sizeof(person));
 
   return 0;
 
