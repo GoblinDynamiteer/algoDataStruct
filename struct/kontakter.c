@@ -9,11 +9,16 @@ typedef struct _person_S{
 
 person p1, p2;
 
+typedef int * ptr_to_int;
+
 int main(void){
+  int pek = 2;
+  ptr_to_int a;
   printf("Välkommen till kontakter!\n");
   p1.namn = "Sven Specimen";
   p1.alder = 32;
   p2 = p1;
+  a = &pek;
   printf("person - namn: %s, ålder: %d\n",
     p1.namn, p1.alder);
   printf("person - namn: %s, ålder: %d\n",
