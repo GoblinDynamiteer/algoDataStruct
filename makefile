@@ -1,4 +1,4 @@
-TARGET = algo_assign
+TARGET = algo_assign01
 LIBS =
 CC = gcc
 CFLAGS = -g -Wall
