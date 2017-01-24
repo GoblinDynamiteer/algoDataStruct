@@ -18,5 +18,6 @@ frac plus(frac f1, frac f2);
 frac minus(frac f1, frac f2);
 frac times(frac f1, frac f2);
 frac div(frac f1, frac f2);
+int gcd(int t, int n);
 
 #endif /* FRAC_H_ */
