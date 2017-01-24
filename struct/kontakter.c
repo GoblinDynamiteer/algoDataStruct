@@ -23,10 +23,17 @@ int main(void){
       printf("Mata in kontakt nr %d \n", ix+1);
       printf("Ange namn: "); fflush(stdin);
       fgets(namn, 64, stdin);
-      kontakt[ix].namn = namn; //fel - pekare
+
+      //kontakt[ix].namn = namn; //fel - pekare
+      namn[strlen(namn)-1] = '\0';
+
+      /*    1. Skapa utrymme för sträng och lägg
+              i kontakt[ix].namn  */
+      kontakt[ix].namn = malloc(strlen(namn));
+      /*    2. Kopiera över namn till kontakt[ix.namn]  */
+      strcpy(kontakt[ix].namn, namn);
 
       /*    Set null terminator at end of name */
-      namn[strlen(namn)-1] = '\0';
       printf("Ange ålder: "); fflush(stdout);
       fgets(aldersStr, 64, stdin);
       kontakt[ix].alder = atoi(aldersStr);
@@ -34,8 +41,8 @@ int main(void){
 
   /*   Print contact  */
   for(int i = 0; i< 3; i++){
-      printf("namn %d: %s Ålder: %d\n",
-      i,
+      printf("Namn: %d: %s\nÅlder: %d\n\n",
+      i+1,
       kontakt[i].namn,
       kontakt[i].alder
     );
