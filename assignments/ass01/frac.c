@@ -60,22 +60,27 @@ frac div(frac f1, frac f2){
     klar och divisionen finns i n
   * sätt annars m till n och n till r
     och gå tillbaka till steg 1 */
-frac simplifyFrac(frac frac){
-  int m = frac.t, n = frac.n, r;
+int findGCD(int m, int n){
+  int r;
   while(1){
     r = m % n;
     if (!r){
-      break;
+      return n;
     }
     m = n;
     n = r;
   }
+  return 0; //Ska inte komma hit
+}
+
 /*  Dividera täljare och nämnare
     med minsta gemensamma delare,
     om denna inte är 1 (har ingen effekt)  */
-  if(n != 1){
-    frac.t /= n;
-    frac.n /= n;
+frac simplifyFrac(frac frac){
+  int divisor = findGCD(frac.t, frac.n);
+  if(divisor != 1){
+    frac.t /= divisor;
+    frac.n /= divisor;
   }
   return frac;
 }

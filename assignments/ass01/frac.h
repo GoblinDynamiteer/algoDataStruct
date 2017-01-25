@@ -20,5 +20,6 @@ frac minus(frac f1, frac f2);
 frac times(frac f1, frac f2);
 frac div(frac f1, frac f2);
 frac simplifyFrac(frac frac);
+int findGCD(int m, int n);
 
 #endif /* FRAC_H_ */
