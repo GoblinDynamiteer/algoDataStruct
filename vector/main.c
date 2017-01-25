@@ -5,8 +5,8 @@ typedef struct _pos3D_S{
 }pos3D;
 
 int main(void){
-  double x, y, z;
-  x = 1, y = 1, z = 1;
-  printf("<%g %g %g>", x, y, z);
+  pos3D v;
+  v.x = 1; v.y = 1; v.z = 1;
+  printf("<%g %g %g>", v.x, v.y, v.z);
   return 0;
 }
