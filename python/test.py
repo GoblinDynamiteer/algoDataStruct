@@ -6,6 +6,12 @@ def fact(n):
 		return 1
 	else:
 		return n*fact(n-1)
+
+def fact2(n):
+	i = 1
+	for n in range (1, n+1):
+		i=i*n
+	return i
 	
 for i in range(0,20):
 	print(i)
@@ -22,6 +28,9 @@ for banan in lista:
 i = sqrt(66)
 print(i)
 
-nfak = fact(5)
+nfak = fact(20)
+print(nfak)
+
+nfak = fact2(20)
 print(nfak)
 
