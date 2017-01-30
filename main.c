@@ -10,10 +10,10 @@
 
 int main(void){
   frac f1, f2, result;
-  f1.t = 11;
-  f1.n = 118;
-  f2.t = 65;
-  f2.n = 652;
+  f1.t = 94;
+  f1.n = 1234;
+  f2.t = 12;
+  f2.n = 8;
   printf("f1: %d / %d\nf2: %d / %d\n",
     f1.t,f1.n,f2.t,f2.n
   );
