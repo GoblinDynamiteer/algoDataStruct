@@ -12,6 +12,8 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+*.o
+*.exe
 
 # Eclipse Core
 .project
