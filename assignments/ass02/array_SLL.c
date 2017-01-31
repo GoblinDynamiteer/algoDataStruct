@@ -28,6 +28,8 @@ int destroy_SLL( array_SLL *array ) {
 int insert_SLL( array_SLL *array, double value ) {
   int count = 0;
   SL_list * SL = array->SL;
+  /*   Gå igenom listans tills tom plats hittas,
+      eller tills alla poster testats.   */
   while(!is_empty(SL)){
     SL = get_next(SL);
     if(count++ >= array->size){
@@ -57,12 +59,17 @@ double lookup_SLL( array_SLL *array, int index ) {
 int find_SLL( array_SLL *array, double value ) {
   int count = 0;
   SL_list * SL = array->SL;
+  /*  Gå igenom listan tills värdet hittas, eller tills alla poster
+      testats.  */
   while(count++ < array->size){
+    /*   Det går att jämföra flyttalen med == när de är genererade med
+        rand() % 100, då dessa blir heltal. */
     if(SL->content == value){
       //printf("Found %g @ index %d\n", value, count-1);
-      return count-1;
+      return count-1; // -1 då count++ körs i while-loopen
     }
     SL = get_next(SL);
   }
-  return -1;
+  //printf("Did not find value %g in list\n", value);
+  return -1; //Värdet hittades inte
 }
