@@ -64,7 +64,7 @@ int find_SLL( array_SLL *array, double value ) {
   while(count++ < array->size){
     /*   Det går att jämföra flyttalen med == när de är genererade med
         rand() % 100, då dessa blir heltal. */
-    if(SL->content == value){
+    if(SL->content == value){ //Ev. bygg om, jämför med litet tal
       //printf("Found %g @ index %d\n", value, count-1);
       return count-1; // -1 då count++ körs i while-loopen
     }
