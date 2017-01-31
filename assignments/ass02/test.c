@@ -12,19 +12,19 @@ int main(void) {
    ASLL = create_SLL(1000);
    c0 = clock();
    for(sllix = 0; sllix < 1000; sllix++) {
-      insert_SLL(ASLL, random()%100);
+      insert_SLL(ASLL, rand()%100);
    }
    cins = clock()-c0;
    printf("Time for 1000 insert_SLL: %d\n", cins);
    c0 = clock();
    for(sllix = 0; sllix < 1000; sllix++) {
-      lookup_SLL(ASLL, random()%1000);
+      lookup_SLL(ASLL, rand()%1000);
    }
    clook = clock()-c0;
    printf("Time for 1000 lookup_SLL: %d\n", clook);
    c0 = clock();
    for(sllix = 0; sllix < 1000; sllix++) {
-      find_SLL(ASLL, random()%100);
+      find_SLL(ASLL, rand()%100);
    }
    cfind = clock()-c0;
    printf("Time for 1000 find_SLL: %d\n", cfind);
