@@ -2,11 +2,19 @@
 #define _array_SLL_h
 
 #include "SL_list.h"
+#include <stdlib.h> //free()
+#include <stdio.h> //printf()
+#include <math.h> //fabs()
 
 typedef struct _array_SLL_S {
    int size;
    SL_list *SL;
 } array_SLL;
+
+#define SMALLNUM 1e-20
+
+/*  Avkommentera för att få text-feedback vid körning   */
+//#define PRINTOUT
 
 /* Gör: skapar en array med storleken size,
    Returnerar: den nya arrayen */
