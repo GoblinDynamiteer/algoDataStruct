@@ -19,7 +19,13 @@ array_SLL *create_SLL( int size ) {
 /* Gör: tar bort en array som tidigare skapats,
    Returnerar: 1 om något togs bort, 0 om inget togs bort */
 int destroy_SLL( array_SLL *array ) {
+  SL_list * test = array->SL;
+  free(array);
   array = 0;
+  if(!array){
+    printf("Array tom!?");
+    printf("Ser data i nod 1: %g", test->content);
+  }
   return (array == 0);
 }
 
