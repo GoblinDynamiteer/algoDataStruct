@@ -1,3 +1,8 @@
+/*  Inlämningsuppgift 2
+    Algoritmer och datastrukturer
+
+    Johan Kämpe */
+
 #ifndef _array_SLL_h
 #define _array_SLL_h
 
@@ -11,6 +16,7 @@ typedef struct _array_SLL_S {
    SL_list *SL;
 } array_SLL;
 
+/*  För jämförelse av flyttal i find_SLL()  */
 #define SMALLNUM 1e-20
 
 /*  Avkommentera för att få text-feedback vid körning   */
