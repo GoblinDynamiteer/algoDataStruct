@@ -64,10 +64,12 @@ int getFirst(SLList *LL){
   return 1;
 }
 
+/*   Copy node content, insert first  */
 SLList * copyNode(SLList *pLL, SLList *rLL){
   return insertFirst(pLL->content, rLL);
 }
 
+/*   Reverses a linked list  */
 SLList * reverse(SLList *LL){
   SLList * pLL = LL, *revLL = EMPTY_LIST;
   while(!isEmpty(pLL)){
