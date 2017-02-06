@@ -2,7 +2,9 @@
 #include <assert.h>
 
 int main(void){
-  SLList *LL = 0, *LL2 = 0;
+  SLList * LL = EMPTY_LIST;
+  SLList * LL2 = EMPTY_LIST;
+  SLList * RLL = EMPTY_LIST;
   printLL(LL);
   if(isEmpty(LL)){
     printf("LL == %d\n", isEmpty(LL));
@@ -16,14 +18,17 @@ int main(void){
   LL = insertFirst(666, LL);
   LL = insertFirst(665, LL);
   printLL(LL);
-  LL2 = insertLast2(667, LL2);
-  LL2 = insertLast2(55, LL2);
-  LL2 = insertLast2(11, LL2);
 
-  int n = 500;
+  int n = 10;
   while(n--){
     LL2 = insertLast2((int)n*1.75, LL2);
   }
+
   printLL(LL2);
+
+  RLL = reverse(LL2);
+
+  printLL(RLL);
+
   return 0;
 }

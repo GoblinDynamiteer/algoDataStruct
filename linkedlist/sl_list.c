@@ -63,3 +63,16 @@ void printLL(SLList *LL){
 int getFirst(SLList *LL){
   return 1;
 }
+
+SLList * copyNode(SLList *pLL, SLList *rLL){
+  return insertFirst(pLL->content, rLL);
+}
+
+SLList * reverse(SLList *LL){
+  SLList * pLL = LL, *revLL = EMPTY_LIST;
+  while(!isEmpty(LL)){
+    revLL = copyNode(pLL, revLL);
+    pLL = getNext(pLL);
+  }
+  return revLL;
+}
