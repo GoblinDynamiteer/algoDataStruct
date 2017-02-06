@@ -20,5 +20,6 @@ SLList * getNext(SLList *LL);
 int getFirst(SLList *LL);
 void printLL(SLList *LL);
 SLList * reverse(SLList *LL);
+SLList * insertSorted(int val, SLList *LL);
 
 #endif

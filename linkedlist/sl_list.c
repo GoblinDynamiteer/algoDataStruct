@@ -14,6 +14,24 @@ SLList * insertFirst(int val, SLList *LL){
   return result;
 }
 
+/*   Inserts value in sorted order  */
+SLList * insertSorted(int val, SLList *LL){
+  /*  Insert value first if list is empty or
+      val is smallest next value to insert */
+  if((isEmpty(LL)) || (getFirst(LL) < val)){
+    return insertFirst(val, LL);
+  }
+  if(isEmpty(getNext(LL))){
+      LL->next = insertFirst(val, EMPTY_LIST);
+      return LL;
+  }
+  if(getFirst(getNext(LL)) >= val){
+    LL->next = insertFirst(val, getNext(LL));
+    return LL;
+  }
+  LL->next = insertSorted(val, LL->next);
+}
+
 /*    Return next item in list */
 SLList *getNext(SLList *LL){
   if(isEmpty(LL)){
@@ -61,7 +79,7 @@ void printLL(SLList *LL){
 }
 
 int getFirst(SLList *LL){
-  return 1;
+  return LL->content;
 }
 
 /*   Copy node content, insert first  */
