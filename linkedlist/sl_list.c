@@ -70,7 +70,7 @@ SLList * copyNode(SLList *pLL, SLList *rLL){
 
 SLList * reverse(SLList *LL){
   SLList * pLL = LL, *revLL = EMPTY_LIST;
-  while(!isEmpty(LL)){
+  while(!isEmpty(pLL)){
     revLL = copyNode(pLL, revLL);
     pLL = getNext(pLL);
   }
