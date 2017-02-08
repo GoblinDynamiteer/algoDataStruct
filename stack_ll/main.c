@@ -17,9 +17,13 @@ void print_stack(stack_LL *stack) {
 }
 
 int main(void) {
-  stack_LL stack1 = {100, 0, 0};
+  stack_LL stack1 = {4, 0, 0};
   print_stack(&stack1);
   push_stack_ll(&stack1, 333);
+  push_stack_ll(&stack1, 365);
+  push_stack_ll(&stack1, 17);
+  push_stack_ll(&stack1, 69);
+  push_stack_ll(&stack1, 667);
   print_stack(&stack1);
   return 0;
 }
