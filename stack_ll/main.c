@@ -26,8 +26,10 @@ int main(void) {
   push_stack_ll(&stack1, 69);
   push_stack_ll(&stack1, 667);
   print_stack(&stack1);
-  for(int ix = 0; ix < 5; ix++){
-    pop_stack_ll(&stack1);
+  for(int ix = 0; ix < 9; ix++){
+    if(pop_stack_ll(&stack1)){
+      printf("Popped empty Stack!\n");
+    }
     print_stack(&stack1);
   }
   return 0;

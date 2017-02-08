@@ -4,7 +4,7 @@
 #include "SL_list.h"
 
 void print_LL(SL_list *LL) {
-   if(LL == 0) { 
+   if(LL == 0) {
       printf("NULL\n");
       return;
    }
