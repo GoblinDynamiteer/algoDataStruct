@@ -18,7 +18,7 @@ int push_stack_ll(stack_LL * S, int v){
 }
 
 int pop_stack_ll(stack_LL * S){
-  return 777;
+  S->list = get_next(S->list);
 }
 
 int top_stack_ll(stack_LL * S){
