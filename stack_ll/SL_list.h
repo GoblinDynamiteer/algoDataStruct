@@ -1,3 +1,6 @@
+#ifndef _SL_LIST_H
+#define _SL_LIST_H
+
 typedef struct _SL_list_S {
    int content;
    struct _SL_list_S *next;
@@ -14,3 +17,5 @@ SL_list *get_next(SL_list *LL);
 SL_list *insert_first(int val, SL_list *LL);
 SL_list *insert_last(int val, SL_list *LL);
 SL_list *insert_last_2(int val, SL_list *LL);
+
+#endif
