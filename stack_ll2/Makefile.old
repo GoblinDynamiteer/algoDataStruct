@@ -1,0 +1,8 @@
+main: main.c SL_list.o stack_LL.o stack_arr.o SL_list.h
+	gcc -o main main.c SL_list.o stack_LL.o stack_arr.o
+SL_list.o: SL_list.c SL_list.h
+	gcc -c SL_list.c
+stack_LL.o: stack_LL.c stack_LL.h
+	gcc -c stack_LL.c
+stack_arr.o: stack_arr.c stack_arr.h
+	gcc -c stack_arr.c
