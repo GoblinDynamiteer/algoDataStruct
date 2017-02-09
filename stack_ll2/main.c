@@ -22,12 +22,17 @@ int main(void) {
          printf("ERROR: popped empty stack!\n");
    printf("empty stack_LL: %s\n", getstr_stack_LL(stack1, b));
 
+   printf("------------\n");
+
    printf("empty stack_arr: %s\n", getstr_stack_arr(stack2, b));
    push_stack_arr(stack2, 333);
    push_stack_arr(stack2, 365);
    push_stack_arr(stack2, 17);
    push_stack_arr(stack2, 69);
    push_stack_arr(stack2, 666);
+   for(int i = 0; i < 5; i++){
+      push_stack_arr(stack2, i+3);
+   }
    printf("full stack_arr: %s\n", getstr_stack_arr(stack2, b));
    for(ix = 0; ix < 4; ix++)
       if(!pop_stack_arr(stack2))
