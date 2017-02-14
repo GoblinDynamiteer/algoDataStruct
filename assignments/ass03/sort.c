@@ -42,8 +42,23 @@ void insert_sort(int *array, int size){
 	}
 }
 
+/*  Byggd efter kod på
+  https://cprogrammingcodes.blogspot.se/2012/02/shell-sorting.html */
 void shell_sort(int *array, int size){
-
+  int ix, jx, kx;
+  for(ix = size/2; ix > 0; ix /= 2){
+    for(jx = ix; jx < size; jx++){
+      for(kx = jx - ix; kx >= 0; kx = kx - ix){
+        if(array[kx+ix] >= array[kx]){
+          break;
+        }
+        else
+        {
+          _swap(&array[kx], &array[kx + ix]);
+        }
+      }
+    }
+  }
 }
 
 int _partition(int *array, int lb, int ub) {
