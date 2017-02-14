@@ -1,5 +1,7 @@
 #include "sort.h"
 #include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
 
 int check_if_sorted(int *array, int size);
 
@@ -20,10 +22,20 @@ void bubble_sort(int *array, int size) {
    }
 }
 
+/* OBS TA BORT  */
 void dylan_sort(int *array, int size){
+  srand(time(NULL));
+  //printf("\nSorting array of size: %d\n", size);
+  unsigned long long tries = 0ull;
   while(!check_if_sorted(array, size)){
+    if(tries % (50000 * size) == 0){
+      //printf("#");
+    }
     _swap(&array[rand() % size], &array[rand() % size]);
+    //tries++;
   }
+  //printf("\nSorted your array! ;D\n");
+  //printf("Took %llu tries, cake!\nThanks for using DylSort TM\n", tries);
 }
 
 void select_sort(int *array, int size) {
