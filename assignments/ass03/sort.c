@@ -31,7 +31,7 @@ void select_sort(int *array, int size) {
 }
 
 /*  Byggd efter pseudokod på insertion sorts wikipedia-sida */
-void insert_sort(int *array, int size) {
+void insert_sort(int *array, int size){
 	int ix, jx;
 	for(ix = 0; ix < size; ix++){
 		jx = ix;
@@ -40,6 +40,10 @@ void insert_sort(int *array, int size) {
 			jx--;
 		}
 	}
+}
+
+void shell_sort(int *array, int size){
+
 }
 
 int _partition(int *array, int lb, int ub) {
