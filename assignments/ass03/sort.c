@@ -1,4 +1,7 @@
 #include "sort.h"
+#include <stdlib.h>
+
+int check_if_sorted(int *array, int size);
 
 void _swap(int *n1, int *n2) {
    int temp = *n1;
@@ -15,6 +18,12 @@ void bubble_sort(int *array, int size) {
          }
       }
    }
+}
+
+void dylan_sort(int *array, int size){
+  while(!check_if_sorted(array, size)){
+    _swap(&array[rand() % size], &array[rand() % size]);
+  }
 }
 
 void select_sort(int *array, int size) {

@@ -16,14 +16,15 @@ typedef struct _sort_handle_S {
 
 #define ZERO_STAT {0,0,0,0,0, 0,0,0,0,0}
 
-#define NUM_ALGORITHMS 5
+#define NUM_ALGORITHMS 6
 
 sort_handle algorithms[NUM_ALGORITHMS] = {
   {"Bubblesort", ZERO_STAT, bubble_sort},
   {"Insertion sort", ZERO_STAT, insert_sort},
   {"Quicksort", ZERO_STAT, quick_sort},
   {"Selection sort", ZERO_STAT, select_sort},
-  {"Shell sort", ZERO_STAT, shell_sort}
+  {"Shell sort", ZERO_STAT, shell_sort},
+  {"dylSort TM", ZERO_STAT, dylan_sort}
 };
 
 void print_array(int *array, int size) {
