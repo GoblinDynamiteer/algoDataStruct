@@ -1,7 +1,7 @@
 typedef int value_type;
 
 typedef struct _node_S{
-  value_type val;
+  value_type value;
   struct _node_S * left_child, * right_child;
 }node;
 
@@ -13,6 +13,6 @@ value_type get_value(node *N);
 node * get_left(node *N);
 node * get_right(node *N);
 // Sätt in ett värde i trädet:
-node * insert_value(value_type val, node *Tree);
+node * insert_value(value_type value, node *Tree);
 // Sök efter ett värde i trädet:
-node * find_value(value_type val, node *Tree);
+node * find_value(value_type value, node *Tree);

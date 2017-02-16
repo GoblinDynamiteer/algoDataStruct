@@ -11,7 +11,7 @@ value_type get_value(node *N) {
         printf("Fel! Can't get next from empty!");
     }
     else{
-        return N->val;
+        return N->value;
     }
 }
 // Returnera barnlänk till vänster, eller höger:
