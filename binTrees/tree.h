@@ -1,3 +1,6 @@
+#ifndef _TREE_H
+#define _TREE_H
+
 typedef int value_type;
 
 typedef struct _node_S{
@@ -16,3 +19,5 @@ node * get_right(node *N);
 node * insert_value(value_type value, node *Tree);
 // Sök efter ett värde i trädet:
 node * find_value(value_type value, node *Tree);
+
+#endif
