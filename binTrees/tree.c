@@ -36,7 +36,14 @@ node *insert_value(value_type val, node *Tree){
         return new_node;
     }
     else{
-
+        if(val < get_value(Tree)){
+            Tree->left_child = insert_value(val, get_left(Tree));
+            return Tree;
+        }
+        else if(val > get_value(Tree)){
+            Tree->right_child = insert_value(val, get_right(Tree));
+            return Tree;
+        }
     }
 }
 // Sök efter ett värde i trädet:
