@@ -2,12 +2,25 @@
 #include <stdlib.h>
 #include <time.h>
 
+#ifdef _WIN32
+  #include <windows.h>
+
+  double mclocks() {
+	  LARGE_INTEGER itim;
+	  QueryPerformanceCounter(&itim);
+      return itim.QuadPart/5000.0;
+  }
+#else
+  double mclocks() {
+	  return (double)clock();
+  }
+#endif
+
 #include "sort.h"
 
 void usage() {
    printf("Usage: main /statistics_file/\n");
 }
-
 typedef struct _sort_handle_S {
    char *algorithm_name;
    double statistics[10];
@@ -16,7 +29,7 @@ typedef struct _sort_handle_S {
 
 #define ZERO_STAT {0,0,0,0,0, 0,0,0,0,0}
 
-#define NUM_ALGORITHMS 6
+#define NUM_ALGORITHMS 5
 
 sort_handle algorithms[NUM_ALGORITHMS] = {
   {"Bubblesort", ZERO_STAT, bubble_sort},
@@ -24,7 +37,6 @@ sort_handle algorithms[NUM_ALGORITHMS] = {
   {"Quicksort", ZERO_STAT, quick_sort},
   {"Selection sort", ZERO_STAT, select_sort},
   {"Shell sort", ZERO_STAT, shell_sort},
-  {"dylSort TM", ZERO_STAT, dylan_sort}
 };
 
 void print_array(int *array, int size) {
@@ -54,8 +66,7 @@ void compute_statistics(FILE *statF, int size, double scale) {
    int alg, ix, num, sample;
    const int num_samples = 50;
    int array[10000];
-   int t0, t1;
-   double T;
+   double t0, t1, T;
    void (*sort)(int *, int);
 
    srand(clock());
@@ -69,16 +80,19 @@ void compute_statistics(FILE *statF, int size, double scale) {
                array[ix] = rand()%100;
             }
             sort = algorithms[alg].function;
-            t0 = clock();
+            t0 = mclocks();
             sort(array, num);
-            t1 = clock();
+            t1 = mclocks();
             if(!check_if_sorted(array, num)) {
                printf("\nERROR: algorithm %s doesn't sort the array ",
                      algorithms[alg].algorithm_name);
                print_array(array, num);
             }
-            T = (double)(t1-t0)/CLOCKS_PER_SEC;
-            algorithms[alg].statistics[num/size] += T/num_samples;
+            T = t1-t0;
+			if(T == 0.00) {
+				printf("WARNING: zero time interval detected\n");
+			}
+            algorithms[alg].statistics[num/size] += T;
             printf("+"); fflush(stdout);
          }
          printf("\n");
@@ -94,7 +108,7 @@ void compute_statistics(FILE *statF, int size, double scale) {
    for(ix = 1; ix < 10; ix++) {
       fprintf(statF, " %4d", ix*size);
       for(alg = 0; alg < NUM_ALGORITHMS; alg++) {
-        fprintf(statF, "       % 9.2f", scale*algorithms[alg].statistics[ix]);
+        fprintf(statF, "       % 9.2f", scale*algorithms[alg].statistics[ix]/CLOCKS_PER_SEC/num_samples);
       }
       fprintf(statF, "\n");
    }
