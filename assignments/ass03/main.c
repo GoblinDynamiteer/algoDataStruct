@@ -36,7 +36,7 @@ sort_handle algorithms[NUM_ALGORITHMS] = {
   {"Insertion sort", ZERO_STAT, insert_sort},
   {"Quicksort", ZERO_STAT, quick_sort},
   {"Selection sort", ZERO_STAT, select_sort},
-  {"Shell sort", ZERO_STAT, shell_sort},
+  {"Shell sort", ZERO_STAT, shell_sort}
 };
 
 void print_array(int *array, int size) {
